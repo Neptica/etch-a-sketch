@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: none;
+}
+
+.page__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls__container {
+  height: 960px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: beige;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#board__container {
+  height: 960px;
+  width: 960px;
+  background-color: white;
+}
+
+#board {
+  display: flex;
+  flex-direction: column;
+}
+
+#box {
+  width: 100px;
+  height: 100px;
+  border: black solid 1px;
+}

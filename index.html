@@ -5,14 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
     <link href="css/style.css" rel="stylesheet" />
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="controls__container">
-      <div class="controls"></div>
-    </div>
-    <div class="board__container">
-      <div class="board"></div>
+    <div class="page__container">
+      <div class="controls__container">
+        <div class="controls">
+          <label for="size">Size of grid (1-100)</label>
+          <div>
+            <input type="text" name="size" id="size" />
+            <button id="resize">Resize</button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <label for="color">Pick a color</label>
+          <div>
+            <input type="text" name="color" id="color" />
+            <button id="color">Resize</button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <label for="brush">Pick a brush size</label>
+          <div>
+            <input type="text" name="brush" id="brush" />
+            <button id="brush">Resize</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="board__container">
+        <div id="board"></div>
+      </div>
     </div>
   </body>
 </html>
