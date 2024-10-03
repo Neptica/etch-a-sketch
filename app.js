@@ -7,7 +7,7 @@ const totalGrid = 960;
 let currentColor = "black";
 
 function changeBoxStyle() {
-  this.style.backgroundColor = `${currentColor}`;
+  this.style.backgroundColor = currentColor;
 }
 
 for (let i = 0; i < 1; i++) {
@@ -16,7 +16,6 @@ for (let i = 0; i < 1; i++) {
   let neededBoxes = gridSize * gridSize;
   let row = document.createElement("div");
   row.classList.add("row");
-  row.style.cssText = "display: flex; flex-direction: columns;";
   for (let i = 0; i < neededBoxes; i++) {
     // one div to make it square first
     let box = document.createElement("div");
@@ -28,7 +27,6 @@ for (let i = 0; i < 1; i++) {
       board.appendChild(row);
       row = document.createElement("div");
       row.classList.add("row");
-      row.style.cssText = "display: flex; flex-direction: columns;";
     }
   }
 }
@@ -43,7 +41,6 @@ function changeGrid() {
   let neededBoxes = gridSize * gridSize;
   let row = document.createElement("div");
   row.classList.add("row");
-  row.style.cssText = "display: flex; flex-direction: columns;";
   for (let i = 0; i < neededBoxes; i++) {
     let box = document.createElement("div");
     box.classList.add("box");
@@ -54,7 +51,6 @@ function changeGrid() {
       board.appendChild(row);
       row = document.createElement("div");
       row.classList.add("row");
-      row.style.cssText = "display: flex; flex-direction: columns;";
     }
   }
 }
@@ -62,12 +58,7 @@ function changeGrid() {
 size_btn.addEventListener("click", changeGrid);
 
 function changeColor() {
-  let boxes = document.getElementsByClassName("box");
-  for (let box of boxes) {
-    box.removeEventListener("mouseover", changeBoxStyle);
-    currentColor = this.textContent;
-    box.addEventListener("mouseover", changeBoxStyle);
-  }
+  currentColor = this.textContent;
 }
 
 let buttons = document.getElementsByClassName("picker");
