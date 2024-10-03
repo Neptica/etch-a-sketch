@@ -11,26 +11,22 @@
     <div class="page__container">
       <div class="controls__container">
         <div class="controls">
-          <label for="size">Size of grid (1-100)</label>
+          <label for="size">Size of grid (16-100)</label>
           <div>
             <input type="text" name="size" id="size" />
             <button id="resize">Resize</button>
           </div>
         </div>
 
-        <div class="controls">
-          <label for="color">Pick a color</label>
-          <div>
-            <input type="text" name="color" id="color" />
-            <button id="color">Resize</button>
-          </div>
-        </div>
-
-        <div class="controls">
-          <label for="brush">Pick a brush size</label>
-          <div>
-            <input type="text" name="brush" id="brush" />
-            <button id="brush">Resize</button>
+        <div class="dropdown">
+          <button id="color">Color</button>
+          <div class="dropdown-content">
+            <button class="picker">black</button>
+            <button class="picker">blue</button>
+            <button class="picker">red</button>
+            <button class="picker">green</button>
+            <button class="picker">yellow</button>
+            <button class="picker">purple</button>
           </div>
         </div>
       </div>

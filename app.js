@@ -4,6 +4,11 @@ const size_btn = document.getElementById("resize");
 const board = document.getElementById("board");
 
 const totalGrid = 960;
+let currentColor = "black";
+
+function changeBoxStyle() {
+  this.style.backgroundColor = `${currentColor}`;
+}
 
 for (let i = 0; i < 1; i++) {
   let gridSize = 16;
@@ -17,6 +22,7 @@ for (let i = 0; i < 1; i++) {
     let box = document.createElement("div");
     box.classList.add("box");
     box.style.cssText = `height: ${pxPerBox - 1}px; width: ${pxPerBox - 1}px; background-color: white; border: black solid 0.5px;`;
+    box.addEventListener("mouseover", changeBoxStyle);
     row.appendChild(box);
     if (i % gridSize === gridSize - 1) {
       board.appendChild(row);
@@ -30,7 +36,8 @@ for (let i = 0; i < 1; i++) {
 function changeGrid() {
   let gridSize = size_input.value;
   size_input.value = "";
-  if (isNaN(gridSize) || gridSize === "") return;
+  if (isNaN(gridSize) || gridSize === "" || gridSize > 100 || gridSize < 16)
+    return;
   board.innerHTML = "";
   let pxPerBox = totalGrid / gridSize;
   let neededBoxes = gridSize * gridSize;
@@ -41,6 +48,7 @@ function changeGrid() {
     let box = document.createElement("div");
     box.classList.add("box");
     box.style.cssText = `height: ${pxPerBox - 1}px; width: ${pxPerBox - 1}px; background-color: white; border: black solid 0.5px;`;
+    box.addEventListener("mouseover", changeBoxStyle);
     row.appendChild(box);
     if (i % gridSize === gridSize - 1) {
       board.appendChild(row);
@@ -52,3 +60,18 @@ function changeGrid() {
 }
 
 size_btn.addEventListener("click", changeGrid);
+
+function changeColor() {
+  let boxes = document.getElementsByClassName("box");
+  for (let box of boxes) {
+    box.removeEventListener("mouseover", changeBoxStyle);
+    currentColor = this.textContent;
+    box.addEventListener("mouseover", changeBoxStyle);
+  }
+}
+
+let buttons = document.getElementsByClassName("picker");
+for (let btn of buttons) {
+  btn.style.cssText = `background-color: ${btn.textContent};`;
+  btn.addEventListener("click", changeColor);
+}
